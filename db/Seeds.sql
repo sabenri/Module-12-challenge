@@ -15,4 +15,4 @@ INSERT INTO Employees(Frist_Name, Last_Name, Roles_id, Manager_id) VALUES
 ('Chris','Smith', 2, NULL),
 ('Lilly','Davis', 1, NULL),
 ('Sam','June', 3, NULL),
-('Kody', 'Jones' 4, NULL);
+('Kody', 'Jones', 4, NULL);

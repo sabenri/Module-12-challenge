@@ -24,5 +24,3 @@ CREATE TABLE Employees (
     Manager_id INTEGER DEFAULT NULL,
     FOREIGN KEY (Manager_id) REFERENCES Employees(id)
 );
-
-
