@@ -40,6 +40,43 @@ const mainMenu = async() => {
 
         case 'Update Employee Role':
             const updateData = await inquirer.prompt([
-                
-            ])
+                {name: 'Employee_id', message:"Please enter employee id to update:"},
+                {name: 'Role_id', message:"Please enter the new role id"},
+            ]);
+            await UpdateEmployeeRoles(updateData.Employees_id, updateData.Role_id);
+            console.log("Empoyee's role was updated");
+            break;
+        
+        case 'View all Roles':
+            console.table(await getALLRoles());
+            break;
+
+        case 'Add a new role':
+            const RolesData= await inquirer.prompt([
+                {name: 'Title', message: "Please enter title for new role:"},
+                {name: 'Salary', message: "Please enter the salary for new role"},
+                {name: 'Deparment_id', message: "Please enter a department ID"},
+            ]);
+
+            await addRole(RolesData.title, RolesData.Salary, RolesData.Deparment_id);
+            console.log ("A new role has been added");
+            break;
+
+        case 'view all departments':
+            console.table(await getAllDepartments());
+            break;
+
+        case 'Add a new department':
+            const DepartmentsData = await inquirer.prompt([
+                {name: 'Name', message: "Enter a name for the department:"},
+            ]);
+        
+        await addDeparment (DepartmentsData.name); 
+        console.log ("A new department has been added");
+        break;
     }
+
+    mainMenu();
+};
+
+mainMenu();
