@@ -24,15 +24,15 @@ const getALLEmployess = async() => {
     return res.rows;
 };
 
-const addDepartments = async(Names) => {
+const addDepartment = async(Names) => {
     await client.query("INSERT INTO Department (Names) VALUES ($1)",[Names]);
 }
 
- const addRoles = async (Title, Salary, Departments_id) => {
+ const addRole = async (Title, Salary, Departments_id) => {
     await client.query("INSERT INTO Roles (TItle, Salary, Departments_id) VALUES ($1,$2,$3)",[Title, Salary,Departments_id]);
  };
 
- const addEmployees = async (First_Name, Last_Name, Roles_id, Manager_id) => {
+ const addEmployee = async (First_Name, Last_Name, Roles_id, Manager_id) => {
     await client.query ("INSERT INTO Employees (First_Name, Last_Name, Roles_id, Manger_id) Values ($1, $2, $3, $4)",[First_Name, Last_Name, Roles_id, Manager_id])
 };
 
