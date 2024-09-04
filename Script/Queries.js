@@ -10,7 +10,17 @@ const client = new Pool({
 client.connect();
 
 const getAllDepartments = async() => {
-    const res = await client.query("SELECT * FROM department");
+    const res = await client.query("SELECT * FROM Departments");
+    return res.rows;
+};
+
+const getALLRoles = async() => {
+    const res = await client.query("SELECT * FROM Role");
+    return res.rows;
+};
+
+const getALLEmployess = async() => {
+    const res = await client.query("SELECT * FROM Employees");
     return res.rows;
 };
 
