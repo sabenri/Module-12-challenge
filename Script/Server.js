@@ -38,10 +38,10 @@ const mainMenu = async() => {
         console.log("A new employee has been added");
         break;
 
-        case 'Update Employee Role':
+        case 'Update Employee Roles':
             const updateData = await inquirer.prompt([
                 {name: 'Employee_id', message:"Please enter employee id to update:"},
-                {name: 'Role_id', message:"Please enter the new role id"},
+                {name: 'Roles_id', message:"Please enter the new role id"},
             ]);
             await UpdateEmployeeRoles(updateData.Employees_id, updateData.Role_id);
             console.log("Empoyee's role was updated");

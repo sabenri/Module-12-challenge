@@ -1,10 +1,11 @@
+const inquirer = require('inquirer');
 const{pool} = require('pg');
 
-const client = new Pool({
-    user: 'Sabely',
+const client = new pool({
+    user: 'postgres',
     host: 'localhost',
     database: 'Employee_db',
-    password:'',
+    password:'loveyou626',
 });
 
 client.connect();
@@ -24,20 +25,16 @@ const getALLEmployess = async() => {
     return res.rows;
 };
 
-const addDepartment = async(Names) => {
+const addDepartments = async(Names) => {
     await client.query("INSERT INTO Department (Names) VALUES ($1)",[Names]);
 }
 
- const addRole = async (Title, Salary, Departments_id) => {
+ const addRoles = async (Title, Salary, Departments_id) => {
     await client.query("INSERT INTO Roles (TItle, Salary, Departments_id) VALUES ($1,$2,$3)",[Title, Salary,Departments_id]);
  };
 
- const addEmployee = async (First_Name, Last_Name, Roles_id, Manager_id) => {
+ const addEmployees = async (First_Name, Last_Name, Roles_id, Manager_id) => {
     await client.query ("INSERT INTO Employees (First_Name, Last_Name, Roles_id, Manger_id) Values ($1, $2, $3, $4)",[First_Name, Last_Name, Roles_id, Manager_id])
-};
-
-const UpdateEmployeeRoles = async (Employees_id, Roles_id) => {
-    await client.query ("UPDATE Employees SET Roles_id = $1 WHERE id = $2", [Roles_id, Employees_id]);
 };
 
 module.ex = {getAllDepartments, getALLRoles, getALLEmployess, addDepartments, addEmployees, addRoles};

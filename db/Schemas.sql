@@ -2,7 +2,7 @@ DROP DATABASE IF EXISTS Employee_db;
 
 CREATE DATABASE Employee_db;
 
-CREATE TABLE Deparments (
+CREATE TABLE Departments (
     id SERIAL PRIMARY KEY, 
     names VARCHAR(30) UNIQUE NOT NULL
 ); 
